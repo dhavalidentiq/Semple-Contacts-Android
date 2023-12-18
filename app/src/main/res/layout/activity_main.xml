@@ -20,7 +20,7 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -33,10 +33,19 @@
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/activity_margin"
             android:src="@drawable/ic_dialpad_vector"
-            app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adSize="BANNER"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            />
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_tabs_holder"
             android:layout_width="match_parent"
@@ -45,18 +54,5 @@
             app:tabIndicator="@null"
             app:tabMinWidth="150dp"
             app:tabRippleColor="@null" />
-
-        
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="677dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>     
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

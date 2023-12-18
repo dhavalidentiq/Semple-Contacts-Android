@@ -20,6 +20,9 @@ import com.simplemobiletools.contacts.pro.extensions.*
 import com.simplemobiletools.contacts.pro.helpers.VcfExporter
 import java.io.OutputStream
 import java.util.Locale
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
@@ -29,13 +32,18 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
-
+    lateinit var adView: AdView
+    lateinit var adRequest: AdRequest
     private var ignoredExportContactSources = HashSet<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        MobileAds.initialize(this)
+        adView = findViewById(R.id.adView)
+        adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
         updateMaterialActivityViews(binding.settingsCoordinator, binding.settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)
         setupMaterialScrollListener(binding.settingsNestedScrollview, binding.settingsToolbar)
     }
