@@ -51,8 +51,6 @@ class SettingsActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
         setupToolbar(binding.settingsToolbar, NavigationIcon.Arrow)
-
-        setupCustomizeColors()
         setupManageShownContactFields()
         setupManageShownTabs()
         setupFontSize()
@@ -65,7 +63,6 @@ class SettingsActivity : SimpleActivity() {
         setupMergeDuplicateContacts()
         setupShowCallConfirmation()
         setupShowDialpadButton()
-        setupShowPrivateContacts()
         setupOnContactClick()
         setupDefaultTab()
         setupEnableAutomaticBackups()
@@ -75,7 +72,6 @@ class SettingsActivity : SimpleActivity() {
         updateTextColors(binding.settingsHolder)
 
         arrayOf(
-            binding.settingsColorCustomizationSectionLabel,
             binding.settingsGeneralSettingsLabel,
             binding.settingsMainScreenLabel,
             binding.settingsListViewLabel,
@@ -86,11 +82,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupCustomizeColors() {
-        binding.settingsColorCustomizationHolder.setOnClickListener {
-            startCustomizationActivity()
-        }
-    }
 
     private fun setupManageShownContactFields() {
         binding.settingsManageContactFieldsHolder.setOnClickListener {
@@ -205,13 +196,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowPrivateContacts() {
-        binding.settingsShowPrivateContacts.isChecked = config.showPrivateContacts
-        binding.settingsShowPrivateContactsHolder.setOnClickListener {
-            binding.settingsShowPrivateContacts.toggle()
-            config.showPrivateContacts = binding.settingsShowPrivateContacts.isChecked
-        }
-    }
 
     private fun setupOnContactClick() {
         binding.settingsOnContactClick.text = getOnContactClickText()

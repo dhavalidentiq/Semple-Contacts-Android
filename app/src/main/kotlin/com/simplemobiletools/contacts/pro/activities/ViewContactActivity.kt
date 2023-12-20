@@ -32,6 +32,9 @@ import com.simplemobiletools.contacts.pro.extensions.editContact
 import com.simplemobiletools.contacts.pro.extensions.getPackageDrawable
 import com.simplemobiletools.contacts.pro.extensions.startCallIntent
 import com.simplemobiletools.contacts.pro.helpers.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class ViewContactActivity : ContactActivity() {
     private var isViewIntent = false
@@ -47,12 +50,16 @@ class ViewContactActivity : ContactActivity() {
     companion object {
         private const val COMPARABLE_PHONE_NUMBER_LENGTH = 9
     }
-
+lateinit var adView: AdView
+    lateinit var adRequest: AdRequest
     override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+MobileAds.initialize(this)
+        adView = findViewById(R.id.adView)
+        adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
         if (checkAppSideloading()) {
             return
         }

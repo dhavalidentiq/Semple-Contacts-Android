@@ -184,7 +184,6 @@ class MainActivity : SimpleActivity(), RefreshContactsListener {
             findItem(R.id.dialpad).isVisible = !config.showDialpadButton
             findItem(R.id.change_view_type).isVisible = currentFragment == findViewById(R.id.favorites_fragment)
             findItem(R.id.column_count).isVisible = currentFragment == findViewById(R.id.favorites_fragment) && config.viewType == VIEW_TYPE_GRID
-            findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(com.simplemobiletools.commons.R.bool.hide_google_relations)
         }
     }
 
@@ -208,7 +207,6 @@ class MainActivity : SimpleActivity(), RefreshContactsListener {
                 R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
                 R.id.filter -> showFilterDialog()
                 R.id.dialpad -> launchDialpad()
-                R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.change_view_type -> changeViewType()
                 R.id.column_count -> changeColumnCount()
                 R.id.settings -> launchSettings()

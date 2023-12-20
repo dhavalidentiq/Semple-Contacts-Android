@@ -10,7 +10,7 @@
         android:id="@+id/settings_coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="?android:attr/actionBarSize">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/settings_toolbar"
@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="50dp"
             android:fillViewport="true"
             android:scrollbars="none">
 
@@ -33,34 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/settings_color_customization_section_label"
-                    style="@style/SettingsSectionLabelStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/color_customization" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/settings_color_customization_holder"
-                    style="@style/SettingsHolderTextViewOneLinerStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/settings_color_customization_label"
-                        style="@style/SettingsTextLabelStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/customize_colors"
-                        ads:layout_constraintStart_toStartOf="parent"
-                        ads:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <include
-                    android:id="@+id/settings_color_customization_divider"
-                    layout="@layout/divider" />
 
                 <TextView
                     android:id="@+id/settings_general_settings_label"
@@ -172,21 +145,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/show_call_confirmation_dialog" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/settings_show_private_contacts_holder"
-                    style="@style/SettingsHolderCheckboxStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-                        android:id="@+id/settings_show_private_contacts"
-                        style="@style/SettingsCheckboxStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/show_private_contacts" />
 
                 </RelativeLayout>
 
@@ -439,7 +397,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="?android:attr/actionBarSize"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintBottom_toBottomOf="parent"

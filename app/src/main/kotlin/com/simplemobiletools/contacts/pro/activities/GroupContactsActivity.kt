@@ -21,6 +21,9 @@ import com.simplemobiletools.contacts.pro.helpers.GROUP
 import com.simplemobiletools.contacts.pro.helpers.LOCATION_GROUP_CONTACTS
 import com.simplemobiletools.contacts.pro.interfaces.RefreshContactsListener
 import com.simplemobiletools.contacts.pro.interfaces.RemoveFromGroupListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class GroupContactsActivity : SimpleActivity(), RemoveFromGroupListener, RefreshContactsListener {
     private var allContacts = ArrayList<Contact>()
@@ -32,11 +35,16 @@ class GroupContactsActivity : SimpleActivity(), RemoveFromGroupListener, Refresh
     protected val INTENT_SELECT_RINGTONE = 600
 
     protected var contact: Contact? = null
-
+lateinit var adView: AdView
+    lateinit var adRequest: AdRequest
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        MobileAds.initialize(this)
+        adView = findViewById(R.id.adView)
+        adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
         updateTextColors(binding.groupContactsCoordinator)
         setupOptionsMenu()
 

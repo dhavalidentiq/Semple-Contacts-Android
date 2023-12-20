@@ -50,6 +50,9 @@ import com.simplemobiletools.contacts.pro.helpers.ADD_NEW_CONTACT_NUMBER
 import com.simplemobiletools.contacts.pro.helpers.IS_FROM_SIMPLE_CONTACTS
 import com.simplemobiletools.contacts.pro.helpers.KEY_EMAIL
 import com.simplemobiletools.contacts.pro.helpers.KEY_NAME
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class EditContactActivity : ContactActivity() {
     companion object {
@@ -79,12 +82,16 @@ class EditContactActivity : ContactActivity() {
     enum class PrimaryNumberStatus {
         UNCHANGED, STARRED, UNSTARRED
     }
-
+lateinit var adView: AdView
+    lateinit var adRequest: AdRequest
     override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+MobileAds.initialize(this)
+        adView = findViewById(R.id.adView)
+        adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
         if (checkAppSideloading()) {
             return
         }

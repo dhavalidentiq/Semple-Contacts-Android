@@ -403,7 +403,16 @@
 
         </RelativeLayout>
     </ScrollView>
-
+ <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adSize="BANNER"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            />
     <ImageView
         android:id="@+id/contact_photo_big"
         android:layout_width="match_parent"
